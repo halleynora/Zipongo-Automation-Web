@@ -164,12 +164,12 @@ public class CommonActionsImpl implements CommonActions {
     }
 
 
-    /**
-     * Helper function that returns the result of the query.
-     * If query returns no result (throws exception), return Optional.empty
-     * @param f Supplier function that invokes the query
-     * @return The Optional<query result> or Optional.empty if nothing returned
-     */
+//    /**
+//     * Helper function that returns the result of the query.
+//     * If query returns no result (throws exception), return Optional.empty
+//     * @param f Supplier function that invokes the query
+//     * @return The Optional<query result> or Optional.empty if nothing returned
+//     */
     public <T> Optional<T> queryObject(Supplier<T> f)
     {
         try
