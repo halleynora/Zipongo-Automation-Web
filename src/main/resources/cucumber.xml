@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+	   http://www.springframework.org/schema/aop
+	   http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+       http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+    <context:annotation-config />
+    <context:component-scan base-package="zipongo.qa.automation" />
+
+    <bean
+            class="org.springframework.aop.aspectj.annotation.AnnotationAwareAspectJAutoProxyCreator" />
+
+    <aop:aspectj-autoproxy proxy-target-class="false" />
+    <bean class="zipongo.qa.automation.util.GeneralAop" id="gaop" />
+    <aop:config>
+        <aop:pointcut expression="execution(* zipongo.qa.automation.*.impl.*.*(..)) &amp;&amp; !@annotation(zipongo.qa.automation.util.ExcludeMethod)" id="aroundAction" />
+        <aop:aspect ref="gaop">
+            <aop:around method="aroundActions" pointcut-ref="aroundAction" />
+        </aop:aspect>
+    </aop:config>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="ignoreUnresolvablePlaceholders" value="true" />
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+        <property name="ignoreResourceNotFound" value="true" />
+        <property name="locations">
+            <list>
+                <value>classpath*:driver.properties</value>
+            </list>
+        </property>
+    </bean>
+
+
+    <bean id="dataProvider"
+    class="zipongo.qa.automation.util.DataProvider">
+
+        <property name="trialURL" value="${url}" />
+        <property name="emailAddress1" value="${zipongo.trial.email1}"/>
+        <property name="password1" value="${zipongo.trial.password1}"/>
+        <property name="emailAddress2" value="${zipongo.trial.email2}"/>
+        <property name="password2" value="${zipongo.trial.password2}"/>
+        <property name="browser" value="${selenium.driver.browser.name}"/>
+        <property name="whereToRun" value="${selenium.driver.location}" />
+        <property name="browserName" value="${selenium.driver.browser.name}" />
+        <property name="pathToChrome" value="${selenium.driver.path.chrome}" />
+
+    </bean>
+
+    <bean id="seleniumBrowserDriverBean" class="com.zipongo.qa.selenium.commons.BrowserDriver">
+        <property name="whereToRun" value="${selenium.driver.location}" />
+        <property name="browserName" value="${selenium.driver.browser.name}" />
+        <property name="pathToChrome" value="${selenium.driver.path.chrome}" />
+        <property name="pathToGecko" value="${selenium.driver.path.gecko}" />
+        <property name="listOfGridHub">
+            <list>
+                <value>${selenium.grid.location}</value>
+                <value>${selenium.grid.location2}</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="commonActions" class="zipongo.qa.automation.commons.impl.CommonActionsImpl"/>
+    <bean id="accountActions" class="zipongo.qa.automation.account.impl.AccountActionsImpl"/>
+    <bean id="randomId" class="zipongo.qa.automation.dto.RandomId"/>
+
+
+
+
+ </beans>
