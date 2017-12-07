@@ -70,6 +70,8 @@
 
     <bean id="commonActions" class="zipongo.qa.automation.commons.impl.CommonActionsImpl"/>
     <bean id="accountActions" class="zipongo.qa.automation.account.impl.AccountActionsImpl"/>
+    <bean id="dashboardActions" class="zipongo.qa.automation.dashboard.impl.DashboardActionsImpl"/>
+
     <bean id="randomId" class="zipongo.qa.automation.dto.RandomId"/>
 
 

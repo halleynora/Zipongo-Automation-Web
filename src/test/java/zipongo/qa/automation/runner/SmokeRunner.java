@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         format={"pretty", "html:target/cucumber-html/smoke", "json:target/cucumber-json-report.json"},
         glue={"zipongo.qa.automation"},
         features={"src/main/resources/features"},
-        tags={"@smoke"}
+        tags={"@pods"}
 )
 public class SmokeRunner {
 }

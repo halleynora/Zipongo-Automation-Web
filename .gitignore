@@ -253,3 +253,12 @@ target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/create
 target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
 target/surefire-reports/Parallel01IT.txt
 target/surefire-reports/TEST-Parallel01IT.xml
+target/cucumber-html/smoke/embedded10.png
+target/cucumber-html/smoke/embedded11.png
+target/cucumber-html/smoke/embedded12.png
+target/cucumber-html/smoke/embedded4.png
+target/cucumber-html/smoke/embedded5.png
+target/cucumber-html/smoke/embedded6.png
+target/cucumber-html/smoke/embedded7.png
+target/cucumber-html/smoke/embedded8.png
+target/cucumber-html/smoke/embedded9.png

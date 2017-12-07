@@ -38,5 +38,11 @@ public class AccountSteps extends SpringContextConfiguration {
     public void logInWithAngelaBowerDemoAccount() {
         accountActions.loginAngelaBowerTrialAccount();
     }
+
+    @Then("^verify order of top navigation menu: zipongo,Acme Inc,Home,CookItNow,Recipes,MyCafe,My Profile,Rewards$")
+    public void verifyOrderOfTopNavigationMenuZipongoAcmeIncHomeCookItNowRecipesMyCafeMyProfileRewards() throws Throwable {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
 }
 

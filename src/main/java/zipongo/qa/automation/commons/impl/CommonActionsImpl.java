@@ -182,4 +182,10 @@ public class CommonActionsImpl implements CommonActions {
         }
     }
 
+    @Override
+    public List<String> parseList(String strList) {
+        return Stream.of(strList.split(","))
+                .map (elem -> new String(elem))
+                .collect(Collectors.toList());
+    }
 }

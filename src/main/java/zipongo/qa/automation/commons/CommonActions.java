@@ -41,4 +41,6 @@ public interface CommonActions {
     void clearAllCookies();
 
     void logout();
+
+    List<String> parseList(String topNavigationList);
 }
