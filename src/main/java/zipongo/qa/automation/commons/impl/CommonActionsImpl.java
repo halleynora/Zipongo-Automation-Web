@@ -42,6 +42,7 @@ public class CommonActionsImpl implements CommonActions {
 
     @Override
     public void logout() {
+        BrowserDriver.wait(2000);
         BrowserDriver.click(profileSubMenuLocator);
         BrowserDriver.click(logoutLocator);
     }

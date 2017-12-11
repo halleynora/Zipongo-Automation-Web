@@ -3,7 +3,7 @@ package zipongo.qa.automation.dashboard;
 import org.openqa.selenium.By;
 
 public interface DashboardActions {
-
+    By profileSubMenuLocator = By.cssSelector(".has-dropdown");
     By zipongoLogoLocator = By.xpath("//div[@class='header-group']/div/div/nav/ul/div/span/li[1]/a/img");
     By acmeLogoLocator = By.xpath("//div[@class='header-group']/div/div/nav/ul/div/span/li[2]/a/img");
     By homeLinkLocator = By.xpath("//ul[@class='right']//span[.='Home']");
@@ -16,11 +16,13 @@ public interface DashboardActions {
     By addItemmToGroceryListTextBoxLocator = By.id("add-an-item");
     By whatsForLunchPod = By.cssSelector("div.dash-tools");
     By twentyThreeAndMePod = By.xpath("//div[@class='dash-tools-wrapper']//div[.='See Your 23andMe Results']");
+    By connectTwentyThreeAndMePod = By.xpath("//div[@class='dash-tools-wrapper']//div[.='Connect to 23andMe']");
+
     By addYourBiometricsPod = By.xpath("//div[@class='dash-tools-wrapper']//div[.='Add your Biometrics']");
     By discoverNewRecipesPod = By.xpath("//div[@class='dash-tools-wrapper']//div[.='Discover New Recipes']");
     By viewBreakfastRecipesPod = By.linkText("VIEW BREAKFAST RECIPESrecipes");
-    By viewThisRecipeLunchPod = By.linkText("VIEW THIS RECIPErecipes");
-    By viewThisRecipeDinnerPod = By.xpath("//div[@class='full-width']/section/div/div[3]/article[3]/div/div[2]/div[2]/div/a[2]/button");
+    By viewThisRecipeLunchPod = By.xpath("//div[@class='full-width']//button[.='VIEW YOUR CAFE']");
+    By viewThisRecipeDinnerPod = By.xpath("//div[@class='full-width']//button[.='VIEW THIS RECIPE']");
 
     void verifyZipongoLogoLInkClickable();
 

@@ -14,6 +14,7 @@ public class DashboardActionsImpl implements DashboardActions {
     @Autowired
     CommonActions commonActions;
 
+
     @Override
     public void verifyZipongoLogoLInkClickable() {
         BrowserDriver.click(zipongoLogoLocator);
@@ -77,9 +78,16 @@ public class DashboardActionsImpl implements DashboardActions {
 
     @Override
     public void verify23AndMePod() {
-        BrowserDriver.click(twentyThreeAndMePod);
+
+        if(BrowserDriver.isElementVisible(twentyThreeAndMePod)) {
+            BrowserDriver.click(twentyThreeAndMePod);
+        }else if (BrowserDriver.isElementVisible(connectTwentyThreeAndMePod)) {
+            BrowserDriver.click(connectTwentyThreeAndMePod);
+        }
         Assert.assertTrue(BrowserDriver.getCurrentURL().equalsIgnoreCase("https://zipongo.com/connections/twentythree"));
         BrowserDriver.getCurrentDriver().navigate().back();
+        BrowserDriver.wait(3000);
+
     }
 
     @Override
@@ -94,6 +102,7 @@ public class DashboardActionsImpl implements DashboardActions {
         BrowserDriver.click(discoverNewRecipesPod);
         Assert.assertTrue(BrowserDriver.getCurrentURL().equalsIgnoreCase("https://zipongo.com/recipes/home"));
         BrowserDriver.getCurrentDriver().navigate().back();
+        BrowserDriver.wait(3000);
     }
 
     @Override
@@ -101,19 +110,25 @@ public class DashboardActionsImpl implements DashboardActions {
         BrowserDriver.click(viewBreakfastRecipesPod);
         Assert.assertTrue(BrowserDriver.getCurrentURL().equalsIgnoreCase("https://zipongo.com/recipes/category/breakfast"));
         BrowserDriver.getCurrentDriver().navigate().back();
+        BrowserDriver.wait(3000);
+
     }
 
     @Override
     public void verifyViewThisRecipeOnLunchPod() {
         BrowserDriver.click(viewThisRecipeLunchPod);
-        Assert.assertTrue(BrowserDriver.getCurrentURL().contains("https://zipongo.com/recipes/"));
+        Assert.assertTrue(BrowserDriver.getCurrentURL().equalsIgnoreCase("https://zipongo.com/my-cafe"));
         BrowserDriver.getCurrentDriver().navigate().back();
+        BrowserDriver.wait(3000);
+
     }
 
     @Override
     public void verifyViewThisRecipeOnDinnerPod() {
         BrowserDriver.click(viewThisRecipeDinnerPod);
-        Assert.assertTrue(BrowserDriver.getCurrentURL().equalsIgnoreCase("https://zipongo.com/recipes/"));
+        Assert.assertTrue(BrowserDriver.getCurrentURL().contains("https://zipongo.com/recipes/"));
         BrowserDriver.getCurrentDriver().navigate().back();
+        BrowserDriver.wait(3000);
+        BrowserDriver.scrollIntoView(profileSubMenuLocator);
     }
 }
