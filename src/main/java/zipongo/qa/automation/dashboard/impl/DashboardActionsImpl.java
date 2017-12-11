@@ -131,4 +131,11 @@ public class DashboardActionsImpl implements DashboardActions {
         BrowserDriver.wait(3000);
         BrowserDriver.scrollIntoView(profileSubMenuLocator);
     }
+
+    @Override
+    public void verifyProfileLinkTopPage() {
+        BrowserDriver.click(profileLinkTopPageLocator);
+        Assert.assertTrue(BrowserDriver.getCurrentURL().equalsIgnoreCase("https://zipongo.com/dashboard"));
+        BrowserDriver.getCurrentDriver().navigate().back();
+    }
 }

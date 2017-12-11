@@ -99,4 +99,9 @@ public class DashboardSteps extends SpringContextConfiguration {
     public void verifyVIewThisRecipeOnDinnerPod() {
         dashboardActions.verifyViewThisRecipeOnDinnerPod();
     }
+
+    @Then("^verify profile link at top of page$")
+    public void verifyProfileLinkAtTopOfPage() {
+        dashboardActions.verifyProfileLinkTopPage();
+    }
 }

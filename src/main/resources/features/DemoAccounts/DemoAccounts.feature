@@ -82,7 +82,7 @@ Feature: Log into demo accounts
     Then verify VIew This Recipe on dinner pod
     Then logout
 
-  @smoke @pods @test
+  @smoke @pods
   Scenario: Log into Angela Bower and verify breakfast, lunch and dinner pods
     Given Zipongo trial page is loaded
     When click Log in Here! link
@@ -90,4 +90,22 @@ Feature: Log into demo accounts
     Then verify View Breakfast Recipes pod
     Then verify View This Recipe on lunch pod
     Then verify VIew This Recipe on dinner pod
+    Then logout
+
+
+  @smoke @profilelink
+  Scenario: Log into Hank McCoy and verify profile link at top of page
+    Given Zipongo trial page is loaded
+    When click Log in Here! link
+    And log in with Hank McCoy demo account
+    Then verify profile link at top of page
+    Then logout
+
+
+  @smoke @pods
+  Scenario: Log into Angela Bower and verify profile link at top of page
+    Given Zipongo trial page is loaded
+    When click Log in Here! link
+    And log in with Angela Bower demo account
+    Then verify profile link at top of page
     Then logout

@@ -24,6 +24,8 @@ public interface DashboardActions {
     By viewThisRecipeLunchPod = By.xpath("//div[@class='full-width']//button[.='VIEW YOUR CAFE']");
     By viewThisRecipeDinnerPod = By.xpath("//div[@class='full-width']//button[.='VIEW THIS RECIPE']");
 
+    By profileLinkTopPageLocator = By.linkText("profiledashboard");
+
     void verifyZipongoLogoLInkClickable();
 
     void verifyAcmeLogoClickable();
@@ -55,4 +57,6 @@ public interface DashboardActions {
     void verifyViewThisRecipeOnLunchPod();
 
     void verifyViewThisRecipeOnDinnerPod();
+
+    void verifyProfileLinkTopPage();
 }
